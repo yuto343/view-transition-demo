@@ -1,11 +1,63 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import { boards } from "../constants";
 ---
 
 <Layout>
-	<Welcome />
+  <h2>おすすめのスノーボード</h2>
+  <ul>
+    {
+      boards.map((board) => (
+        <li>
+          <a href={`/boards/${board.name}`}>
+            <p transition:name={`brand-${board.brand}-${board.name}`}>
+              {board.brand}{" "}
+            </p>
+            <p transition:name={`name-${board.name}`}>{board.name}</p>
+            <img src={board.img} transition:name={`img-${board.name}`} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </Layout>
+<style>
+  h2 {
+    text-align: center;
+    font-weight: bold;
+  }
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    list-style: none;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: flex;
+    justify-content: center;
+  }
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 300px;
+    height: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: black;
+  }
+  p {
+    margin: 0;
+    text-align: center;
+  }
+  img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+  }
+</style>

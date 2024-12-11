@@ -1,0 +1,45 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import type { GetStaticPaths } from "astro";
+import { boards } from "../../constants";
+
+export const getStaticPaths = (() => {
+  return boards.map((board) => ({
+    params: {
+      slug: board.name,
+    },
+    props: {
+      board,
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { board } = Astro.props;
+---
+
+<Layout>
+  <div>
+    <img
+      src={board.img}
+      alt={board.name}
+      transition:name={`img-${board.name}`}
+    />
+    <p transition:name={`brand-${board.brand}-${board.name}`}>{board.brand}</p>
+    <h2 transition:name={`name-${board.name}`}>{board.name}</h2>
+    <p>{board.desc}</p>
+  </div>
+</Layout>
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  div {
+    padding: 24px;
+  }
+  img {
+    width: 200px;
+  }
+</style>
