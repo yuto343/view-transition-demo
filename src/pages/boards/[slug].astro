@@ -24,8 +24,15 @@ const { board } = Astro.props;
       alt={board.name}
       transition:name={`img-${board.name}`}
     />
-    <p transition:name={`brand-${board.brand}-${board.name}`}>{board.brand}</p>
-    <h2 transition:name={`name-${board.name}`}>{board.name}</h2>
+    <p
+      transition:name={`brand-${board.brand}-${board.name}`}
+      transition:animate="slide"
+    >
+      {board.brand}
+    </p>
+    <h2 transition:name={`name-${board.name}`} transition:animate="slide">
+      {board.name}
+    </h2>
     <p>{board.desc}</p>
   </div>
 </Layout>

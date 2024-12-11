@@ -10,10 +10,18 @@ import { boards } from "../constants";
       boards.map((board) => (
         <li>
           <a href={`/boards/${board.name}`}>
-            <p transition:name={`brand-${board.brand}-${board.name}`}>
+            <p
+              transition:name={`brand-${board.brand}-${board.name}`}
+              transition:animate="slide"
+            >
               {board.brand}{" "}
             </p>
-            <p transition:name={`name-${board.name}`}>{board.name}</p>
+            <p
+              transition:name={`name-${board.name}`}
+              transition:animate="slide"
+            >
+              {board.name}
+            </p>
             <img src={board.img} transition:name={`img-${board.name}`} />
           </a>
         </li>
