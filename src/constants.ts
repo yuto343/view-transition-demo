@@ -1,7 +1,7 @@
 export const boards = [
   {
     brand: "CAPITA",
-    img: "./doa.png",
+    img: "/doa.png",
     name: "DOA",
     desc: "アイスバーンからパウダーまであらゆるコンディションに対応できる独自のハイブリッド形状を採用。コアは軽量でしなやか、驚く程簡単に操作出来る。それでいて反発、安定性を生む素材が絶妙にブレンドされることで、一切隙のないボードが完成した。",
   },
@@ -14,7 +14,7 @@ export const boards = [
   {
     brand: "CAPITA",
     name: "SPRING BREAK SLUSH SLASHERS",
-    img: "./slush_slashers.png",
+    img: "/slush_slashers.png",
     desc: "クラシックなサーフロッカーシェイプ。ワイドなウェストが安定感を出し、柔らかいトーションで自在に操作ができる。パウダーから春のクラッシュスノーまで幅広く対応できるショートファンボード。短いテールでどこでもスラッシュしよう！",
   },
   {
